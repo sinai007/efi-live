@@ -1,18 +1,18 @@
 [Script]
 ;ID    Cal   Adj            Value Update Area              Source Area              Comments
 ;----- ----- --- ---------------- ------------------------ ------------------------ ------------------------------
-   10= C2401 SET       "1.000000" .                        .                        EGR Diagnostic Enable
-   20= B1502 SET    "3500.000000" .                        .                        EGR Maximum RPM
-   30= B1503 SET     "200.000000" .                        .                        EGR Minimum RPM
-   40= B1504 SET     "211.550000" .                        .                        EGR Maximum ECT
-   50= B1505 SET     "134.600000" .                        .                        EGR Minimum ECT
-   60= C0301 SET              DTC C0301                    .                        DTC Test Enablers
+   10= C2401 SET     "0"    .                        .                        EGR Diagnostic Enable
+   20= B1502 SET     "0"    .                        .                        EGR Maximum RPM
+   30= B1503 SET     "8192" .                        .                        EGR Minimum RPM
+   40= B1504 SET     "-41"  .                        .                        EGR Maximum ECT
+   50= B1505 SET     "303"  .                        .                        EGR Minimum ECT
+   60= C0301 SET     DTC    C0301                    .                        DTC Test Enablers
 
 [C0301]
-P0401= 2
-P0403= 2
-P0404= 2
-P0405= 2
-P0406= 2
-P1404= 2
+P0401= 3
+P0403= 3
+P0404= 3
+P0405= 3
+P0406= 3
+P1404= 3
 
