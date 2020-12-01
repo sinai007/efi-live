@@ -10,7 +10,7 @@
 ; 200= B0753 SM 100 "-40,10,MAX,MAX" . Smooth Out
 
 ; Increase injection quantity at low idle to prevent wiggling
-300= B0748 SET 1.5 "600,0,800,0" . Low Idle injection
+; 300= B0748 SET 1.5 "600,0,800,0" . Low Idle injection
 
 ; Smooth Timing injection when cold
 400= B0915 PCT -25 . . REduce by 25%
