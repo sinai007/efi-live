@@ -1,0 +1,28 @@
+[Script]
+;ID    Cal   Adj            Value Update Area              Source Area              Comments
+;----- ----- --- ---------------- ------------------------ ------------------------ ------------------------------
+   10= C2401 SET     "0"    .                        .                        EGR Diagnostic Enable
+   20= B1502 SET     "0"    .                        .                        EGR Maximum RPM
+   30= B1503 SET     "8192" .                        .                        EGR Minimum RPM
+   40= B1504 SET     "-41"  .                        .                        EGR Maximum ECT
+   50= B1505 SET     "303"  .                        .                        EGR Minimum ECT
+   60= C0301 SET     DTC    C0301                    .                        DTC Test Disablers
+
+100= B0752 CC= B0751 . .   Copy MAF EGR Off to ON
+110= B2207 CC= B2204 . .   Copy Boost A
+120= B2208 CC= B2205 . .   Copy Boost B
+130= B2209 CC= B2206 . .   Copy Boost C
+
+210= B2211 CC= B2210 . .   Copy Vane A
+220= B2213 CC= B2212 . .   Copy Vane B
+230= B2215 CC= B2214 . .   Copy Vane C
+
+
+[C0301]
+P0401= 3
+P0403= 3
+P0404= 3
+P0405= 3
+P0406= 3
+P1404= 3
+

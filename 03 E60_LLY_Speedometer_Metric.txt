@@ -1,0 +1,5 @@
+[Script]
+; 325/65r18 Tires
+100= H0101 SET 53976 . . Pulses per km
+
+

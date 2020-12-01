@@ -1,0 +1,48 @@
+[Script]
+; Part Throttle ----------------------------------------
+; Upshift
+100= D5000 REL 3 . . 1->2 Shift Speeds 
+110= D5001 REL 3 . . 2->3 Shift Speeds
+120= D5002 REL 3 . . 3->4 Shift Speeds
+130= D5003 REL 3 . . 4->5 Shift Speeds
+
+; Downshift
+200= D5005 REL 3 . . 2->1 Shift Speeds 
+210= D5006 REL 3 . . 3->2 Shift Speeds
+220= D5007 REL 3 . . 4->3 Shift Speeds
+230= D5008 REL 3 . . 5->4 Shift Speeds
+
+; Full Throttle ----------------------------------------
+; Upshift
+300= D5020 REL 3 . . 1->2 Shift Speeds 
+310= D5021 REL 3 . . 2->3 Shift Speeds
+320= D5022 REL 3 . . 3->4 Shift Speeds
+330= D5023 REL 3 . . 4->5 Shift Speeds
+
+; Downshift
+400= D5035 REL 3 . . 2->1 Shift Speeds 
+410= D5036 REL 3 . . 3->2 Shift Speeds
+420= D5037 REL 3 . . 4->3 Shift Speeds
+430= D5038 REL 3 . . 5->4 Shift Speeds
+
+; TCC ------------------------------------------------
+; Apply
+500= D5010 REL 3 . . 2nd Gear
+510= D5011 REL 3 . . 3rd Gear
+520= D5012 REL 3 . . 4th Gear
+530= D5013 REL 3 . . 5th Gear
+540= D5064 REL 3 . . WOT Normal
+550= D5065 REL 3 . . WOT Tow/Haul
+560= D5066 REL 3 . . WOT 4WD Lo
+
+; Release
+600= D5015 REL 3 . . 2nd Gear
+610= D5016 REL 3 . . 3rd Gear
+620= D5017 REL 3 . . 4th Gear
+630= D5018 REL 3 . . 5th Gear
+640= D5067 REL 3 . . WOT Normal
+650= D5068 REL 3 . . WOT Tow/Haul
+660= D5069 REL 3 . . WOT 4WD Low
+
+
+

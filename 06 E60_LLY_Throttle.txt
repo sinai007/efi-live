@@ -1,0 +1,10 @@
+[Script]
+100= B0727 cc= B0727  "MAX,MIN,MAX,MAX" "3000,MIN,3000,MAX" THrottle Base Injection Quantity 
+200= B0727 LFH  . "3000,MIN,MAX,MAX" .  Linear fill
+210= B0727 SET 12 "0,10,MAX,10 .  Set Bottom End to 12
+220= B0727 SET 160 "2600,90,MAX,MAX .  Set Top End to 160
+230= B0727 SMA  100 "0, 20, MAX, MAX" . Smooth (with anchor) lots
+240= B0727 SMA  100 "0, 20, MAX, MAX" . Smooth (with anchor) lots
+250= B0727 SM  100 "0, 20, MAX, MAX" . Smooth (with anchor) lots
+260= B0727 SM  100 "0, 20, MAX, MAX" . Smooth (with anchor) lots
+270= B0727 SM  100 "0, 20, MAX, MAX" . Smooth (with anchor) lots
