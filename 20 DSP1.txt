@@ -1,0 +1,16 @@
+[Script]
+
+; Tune DSP 1  
+; 20% Fuel 10% Boost
+
+; Increase Pulse Width by 20% in acceleration mm3s (40mm+)
+100= A1105 PCT 10 "10,40,MAX,MAX" . increase by 10%
+110= A1105 PCT 10 "10,30,MAX,MAX" . add 10% again
+
+; Increase Boost in the same areas
+200= A1101 PCT 10  "1600,40,MAX,MAX" . increase by 10%
+210= A1101 SM  100 "1600,40,MAX,MAX" . Smooth a bit
+220= A1101 SM  100 "1600,40,MAX,MAX" . Smooth a bit
+230= A1101 SM  100 "1600,40,MAX,MAX" . Smooth a bit
+240= A1101 SM  100 "1600,40,MAX,MAX" . Smooth a bit
+250= A1101 SM  100 "1600,40,MAX,MAX" . Smooth a bit
