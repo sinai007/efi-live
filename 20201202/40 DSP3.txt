@@ -1,0 +1,15 @@
+[Script]
+
+; Tune DSP 2  90hp
+;
+; Use the A timing map
+10= A3107 CC= B0908 . .  Copy A timing map (B0909 for B)
+
+; Increase Pulse Width by 20% in acceleration mm3s (40mm+)
+100= A3105 PCT 40 "60,30,MAX,MAX" . increase by 10%
+110= A3105 SM 100 "50,20,MAX,MAX" . Smooth a bit
+
+; Increase Boost in the same areas
+200= A3101 PCT 10  "1800,50,MAX,MAX" . increase by 10%
+210= A3101 SM  100 "1600,45,MAX,MAX" . Smooth a bit
+210= A3101 SM  100 "1600,45,MAX,MAX" . Smooth a bit
