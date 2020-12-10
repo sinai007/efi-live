@@ -1,0 +1,184 @@
+[Script]
+; ********************************************EGR DTCs and diagnostics***********************************************
+10= C2401 SET     "0"    .                        .                        EGR Diagnostic Enable
+20= B1502 SET     "0"    .                        .                        EGR Maximum RPM
+30= B1503 SET     "8192" .                        .                        EGR Minimum RPM
+40= B1504 SET     "-41"  .                        .                        EGR Maximum ECT
+50= B1505 SET     "303"  .                        .                        EGR Minimum ECT
+60= C0301 SET     DTC    C0301                    .                        DTC Test Disablers
+
+100= B0752 CC= B0751 . .   Copy MAF EGR Off to ON
+110= B2207 CC= B2204 . .   Copy Boost A
+120= B2208 CC= B2205 . .   Copy Boost B
+130= B2209 CC= B2206 . .   Copy Boost C
+
+140= B2211 CC= B2210 . .   Copy Vane A
+150= B2213 CC= B2212 . .   Copy Vane B
+160= B2215 CC= B2214 . .   Copy Vane C
+
+
+; ******************************************** SPEEDOMETER ******************************************************
+; 325/65r18 Tires
+300= H0101 SET 86882 . . Pulses per Mile
+
+; ********************************************Upper Limit Tunings ****************************
+400= B1106 SET 753 "@1,@6,MAX,MAX" . Peak Torque vs RPM 
+410= G0801 SET 4512 . . TCM Speed/Torque RPM MAX  
+; 120= B0725 SET 4062 . . RPM Limit (Upper)
+; 121= B0726 SET 3762 . . RPM Limit (Upper)
+
+430= B0728 SET 200 . . Max Injected Fuel Quantity (Warm)
+431= B0751 SET 200 . . Max Fuel (EGR Off)
+432= B0752 SET 200 . . Max Fuel (EGR On)
+440= B0747 SET 200 . . Max Fuel Quantity vs Speed
+
+450= B0921 SET 40  . . Injection Timing Maximum
+
+; ********************************************Idle Tuning *************************************
+500= B0937 SET "1400.0" "@10,@0,@13,@4" . Idle Timing
+
+; ********************************************Throttle Tuning ********************************************
+; Set 100% Throttle to 100mm3
+600= B0727 cc= B0727  "MAX,MIN,MAX,MAX" "3000,MIN,3000,MAX" THrottle Base Injection Quantity 
+610= B0727 LFH  . "3000,MIN,MAX,MAX" .  Linear fill
+620= B0727 SET 14 "1400,10,MAX,10" .  Set Bottom End to 12
+630= B0727 SET 110 "2600,90,MAX,MAX" .  Set Top End to 100
+640= B0727 SMA  100 "0, 20, MAX, MAX" . Smooth (with anchor) lots
+650= B0727 SMA  100 "0, 20, MAX, MAX" . Smooth (with anchor) lots
+660= B0727 SM  100 "0, 20, MAX, MAX" . Smooth (with anchor) lots
+670= B0727 SM  100 "0, 20, MAX, MAX" . Smooth (with anchor) lots
+680= B0727 SM  100 "0, 20, MAX, MAX" . Smooth (with anchor) lots
+
+; ****************Pilot Injection Tuning *********************************
+
+;  Reduces cold weather pilot injection amounts for moderately cold weather
+; 100= B0753 PCT -25  "-26,10,162,110" .   Reduce -26 by 25%
+; 120= B0753 PCT -25  "3,10,162,110" .   Reduce 3 by 25%
+700= B0753 PCT -25  "32,10,162,110" .   Reduce 32 by 25%
+710= B0753 PCT -25  "61,10,162,110" .   Reduce 6` by 25%
+
+720= B0753 SM 100 "-40,10,MAX,MAX" . Smooth Out
+; 190= B0753 SM 100 "-40,10,MAX,MAX" . Smooth Out
+; 200= B0753 SM 100 "-40,10,MAX,MAX" . Smooth Out
+
+; Increase injection quantity at low idle to prevent wiggling
+730= B0748 SET 1.5 "600,0,800,0" . Low Idle injection
+
+; Smooth Timing injection when cold
+740= B0915 PCT -25 . . REduce by 25%
+750= B0915 SM 100  . . Smooth
+; 420= B0915 SM 100  . . Smooth
+; 430= B0915 SM 100  . . Smooth
+
+; ******************Main Injection Tuning **********************************
+; Reduce and smooth ECT timing adjustments
+800= B0915 PCT -25 . . REduce by 25%
+810= B0915 SM 100  . . Smooth
+; 820= B0915 SM 100  . . Smooth
+; 830= B0915 SM 100  . . Smooth
+
+; Reduce and smooth IAT injection compensation
+840= B0932 PCT -12 . . REduce by 12%
+850= B0932 SM 100  . . Smooth
+; 860= B0932 SM 100  . . Smooth
+; 870= B0932 SM 100  . . Smooth
+
+;Smooth Base Injection C
+880= B0910 SM  100 "1200,15,MAX,MAX" . Smooth C
+; 890= B0910 SM  100 . . Smooth C
+; 900= B0910 SM  100 . . Smooth C
+; 910= B0910 SM  100 . . Smooth C
+; 920= B0910 SM  100 . . Smooth C
+
+;Smooth Base Injection  B
+930= B0909 SM  100 "1200,15,MAX,MAX" . Smooth B
+; 940= B0909 SM  100 . . Smooth B
+; 950= B0909 SM  100 . . Smooth B
+; 960= B0909 SM  100 . . Smooth B
+; 970= B0909 SM  100 . . Smooth B
+
+;Smooth Base Injection  A
+980= B0908 SM  100 "1200,15,MAX,MAX" . Smooth A
+; 990= B0908 SM  100 . . Smooth A
+; 1000= B0908 SM  100 . . Smooth A
+; 1010= B0908 SM  100 . . Smooth A
+; 1020= B0908 SM  100 . . Smooth A
+
+
+; *********************  Copy Optimized to all DSPs ******************
+2000= A0146 SET 		1 		 . 						  . 					   Serial Switch
+2010= A0141 SET         0.300000 .                        .                        DSP5 Tune Switch Delay
+
+2020= A0138 CC=            B2206 .                        "MAX,MAX"                DSP Staging Boost Limit
+2030= A0139 SET            200   .                        .                        DSP Staging Fuel Limit
+
+2040= A0142 SET         3.997760 .                        .                        Program #1 Switch Voltage
+2050= A0143 SET         3.000800 .                        .                        Program #2 Switch Voltage
+2060= A0144 SET         1.998880 .                        .                        Program #3 Switch Voltage
+2070= A0145 SET         1.001920 .                        .                        Program #4 Switch Voltage
+
+2080= A1101 CC=            B2206 "0,0.0,4800,125.0"       "0,0.0,4800,125.0"       DSP #1 Desired Boost Levels
+2090= A2101 CC=            B2206 "0,0.0,4800,125.0"       "0,0.0,4800,125.0"       DSP #2 Desired Boost Levels
+2100= A3101 CC=            B2206 "0,0.0,4800,125.0"       "0,0.0,4800,125.0"       DSP #3 Desired Boost Levels
+2110= A4101 CC=            B2206 "0,0.0,4800,125.0"       "0,0.0,4800,125.0"       DSP #4 Desired Boost Levels
+
+2120= A1114 CC=            B2214 "0,0.0,4800,125.0"       "0,0.0,4800,125.0"       DSP #1 Turbo Vane Target Position (C)
+2130= A2114 CC=            B2214 "0,0.0,4800,125.0"       "0,0.0,4800,125.0"       DSP #2 Turbo Vane Target Position (C)
+2140= A3114 CC=            B2214 "0,0.0,4800,125.0"       "0,0.0,4800,125.0"       DSP #3 Turbo Vane Target Position (C)
+2150= A4114 CC=            B2214 "0,0.0,4800,125.0"       "0,0.0,4800,125.0"       DSP #4 Turbo Vane Target Position (C)
+
+2160= A1102 CC=            B0727 "0,0.0,4800,100.0"       "0,0.0,4800,100.0"       DSP #1 Throttle Base Injection Quantity
+2170= A2102 CC=            B0727 "0,0.0,4800,100.0"       "0,0.0,4800,100.0"       DSP #2 Throttle Base Injection Quantity
+2180= A3102 CC=            B0727 "0,0.0,4800,100.0"       "0,0.0,4800,100.0"       DSP #3 Throttle Base Injection Quantity
+2190= A4102 CC=            B0727 "0,0.0,4800,100.0"       "0,0.0,4800,100.0"       DSP #4 Throttle Base Injection Quantity
+
+2200= A1105 CC=            B0720 "0,0,190,100"            "0,0,190,100"            DSP #1 Main Injection Pulse
+2210= A1106 CC=            B0721 "0,0,190,100"            "0,0,190,100"            DSP #1 Main Injection Pulse (No Pilot)
+2220= A2105 CC=            B0720 "0,0,190,100"            "0,0,190,100"            DSP #2 Main Injection Pulse
+2230= A2106 CC=            B0721 "0,0,190,100"            "0,0,190,100"            DSP #2 Main Injection Pulse (No Pilot)
+2240= A3105 CC=            B0720 "0,0,190,100"            "0,0,190,100"            DSP #3 Main Injection Pulse
+2250= A3106 CC=            B0721 "0,0,190,100"            "0,0,190,100"            DSP #3 Main Injection Pulse (No Pilot)
+2260= A4105 CC=            B0720 "0,0,190,100"            "0,0,190,100"            DSP #4 Main Injection Pulse
+2270= A4106 CC=            B0721 "0,0,190,100"            "0,0,190,100"            DSP #4 Main Injection Pulse (No Pilot)
+
+2280= A1107 CC=            B0910 "0,0,4800,110"           "0,0,4800,110"           DSP #1 Injection Timing (C)
+2290= A2107 CC=            B0910 "0,0,4800,110"           "0,0,4800,110"           DSP #2 Injection Timing (C)
+2300= A3107 CC=            B0910 "0,0,4800,110"           "0,0,4800,110"           DSP #3 Injection Timing (C)
+2310= A4107 CC=            B0910 "0,0,4800,110"           "0,0,4800,110"           DSP #4 Injection Timing (C)
+
+2320= A1108 CC=            B0929 "0,0,4800,110"           "0,0,5000,110"           DSP #1 Injection Timing After Pilot (C,D)
+2330= A2108 CC=            B0929 "0,0,4800,110"           "0,0,5000,110"           DSP #2 Injection Timing After Pilot (C,D)
+2340= A3108 CC=            B0929 "0,0,4800,110"           "0,0,5000,110"           DSP #3 Injection Timing After Pilot (C,D)
+2350= A4108 CC=            B0929 "0,0,4800,110"           "0,0,5000,110"           DSP #4 Injection Timing After Pilot (C,D)
+
+2360= A1109 CC=            B0744 "0,-207,4000,738"        "0,-207,4000,738"        DSP #1 Torque Limited Injection Quantity
+2370= A2109 CC=            B0744 "0,-207,4000,738"        "0,-207,4000,738"        DSP #2 Torque Limited Injection Quantity
+2380= A3109 CC=            B0744 "0,-207,4000,738"        "0,-207,4000,738"        DSP #3 Torque Limited Injection Quantity
+2390= A4109 CC=            B0744 "0,-207,4000,738"        "0,-207,4000,738"        DSP #4 Torque Limited Injection Quantity
+
+2400= A1210 CC=            B1105 "0,0,4000,100"           "0,0,4000,100"           DSP #1 Base Torque
+2410= A2210 CC=            B1105 "0,0,4000,100"           "0,0,4000,100"           DSP #2 Base Torque
+2420= A3210 CC=            B1105 "0,0,4000,100"           "0,0,4000,100"           DSP #3 Base Torque
+2430= A4210 CC=            B1105 "0,0,4000,100"           "0,0,4000,100"           DSP #4 Base Torque
+
+2440= A1111 CC=            B1001 "0,0,4800,110"           "0,0,4800,110"           DSP #1 Fuel Pressure Base
+2450= A2111 CC=            B1001 "0,0,4800,110"           "0,0,4800,110"           DSP #2 Fuel Pressure Base
+2460= A3111 CC=            B1001 "0,0,4800,110"           "0,0,4800,110"           DSP #3 Fuel Pressure Base
+2470= A4111 CC=            B1001 "0,0,4800,110"           "0,0,4800,110"           DSP #4 Fuel Pressure Base
+
+2480= A0117 SET      4500.000000 .                        .                        DSP Output RPM Max
+2490= A0118 SET      4400.000000 .                        .                        DSP Output RPM Min
+2500= A0119 CC=        B2206      .                        "MAX,MAX"               DSP Output Boost Max
+2510= A0120 CC=        B2206      .                        "MIN,MIN,MIN,MIN"       DSP Output Boost Min
+2520= A0121 CC=       G1102       .                        .                       DSP Output Coolant Max
+2530= A0122 CC=       G1101       .                        .                       DSP Output Coolant Min
+2540= A0123 SET         0.000000 .                        .                        DSP Output Torque Value Min
+
+
+[C0301]
+P0401= 3
+P0403= 3
+P0404= 3
+P0405= 3
+P0406= 3
+P1404= 3

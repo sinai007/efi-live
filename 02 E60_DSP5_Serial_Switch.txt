@@ -1,2 +1,0 @@
-[Script]
-100= A0146 SET 1 . . Serial Switch
