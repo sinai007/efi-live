@@ -1,0 +1,33 @@
+[Script]
+
+; Tune DSP 1;
+; -- Add 50/50 Timing
+
+; Increase Pulse Width 
+110= A1105 PCT 20 "60,30,MAX,MAX" . increase
+120= A1105 SM 100 "50,20,MAX,MAX" . Smooth a bit
+
+; Increase Boost in the same areas
+;200= A1101 PCT 10  "1800,50,MAX,MAX" . increase by 10%
+;210= A1101 SM  100 "1600,45,MAX,MAX" . Smooth a bit
+;210= A1101 SM  100 "1600,45,MAX,MAX" . Smooth a bit
+
+; Tune DSP2;
+; -- Add 50/50 Timing
+
+; Increase Pulse Width
+210= A2105 PCT 40 "60,30,MAX,MAX" . increase
+220= A2105 SM 100 "50,20,MAX,MAX" . Smooth a bit
+
+; Tune DSP3;
+;; -- Add 50/50 Timing
+
+; Increase Pulse Width
+310= A3105 PCT 60 "60,30,MAX,MAX" . increase
+320= A3105 SM 100 "50,20,MAX,MAX" . Smooth a bit
+
+
+; Tune DSP4;
+; Increase Pulse Width by 40% in acceleration mm3s (40mm+)
+410= A4105 PCT 80 "60,30,MAX,MAX" . increase
+420= A4105 SM 100 "50,20,MAX,MAX" . Smooth a bit
