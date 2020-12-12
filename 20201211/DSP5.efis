@@ -1,0 +1,34 @@
+[Script]
+
+; Tune DSP 1;
+;100= A1107 CC= B0909 . .  Copy B timing map (B0909 for B, B0908 for A)
+;106= A1107 SM 100 "1200,45,MAX,MAX" . Smooth
+
+; Increase Pulse Width by 10% in acceleration mm3s (30mm+)
+110= A1105 PCT 40 "60,30,MAX,MAX" . increase by 40%
+120= A1105 SM 100 "50,20,MAX,MAX" . Smooth a bit
+130= A1106 PCT 40 "60,30,MAX,MAX" . increase by 40%
+140= A1106 SM 100 "50,20,MAX,MAX" . Smooth a bit
+
+; Tune DSP 2;
+; Same as 1, but with A timing adjustment
+200= A2107 CC= B0908 . .  			Copy B timing map (B0909 for B, B0908 for A)
+210= A2105 PCT 40 "60,30,MAX,MAX" . increase by 40%
+220= A2105 SM 100 "50,20,MAX,MAX" . Smooth a bit
+230= A2106 PCT 40 "60,30,MAX,MAX" . increase by 40%
+240= A2106 SM 100 "50,20,MAX,MAX" . Smooth a bit
+
+
+; Increase Pulse Width by 10% in acceleration mm3s (30mm+)
+310= A4105 PCT 40 "60,30,MAX,MAX" . increase by 40%
+320= A4105 SM 100 "50,20,MAX,MAX" . Smooth a bit
+330= A4106 PCT 40 "60,30,MAX,MAX" . increase by 40%
+340= A4106 SM 100 "50,20,MAX,MAX" . Smooth a bit
+
+; Tune DSP 2;
+; Same as 1, but with A timing adjustment
+400= A4107 CC= B0908 . .  			Copy B timing map (B0909 for B, B0908 for A)
+410= A4105 PCT 40 "60,30,MAX,MAX" . increase by 40%
+420= A4105 SM 100 "50,20,MAX,MAX" . Smooth a bit
+430= A4106 PCT 40 "60,30,MAX,MAX" . increase by 40%
+440= A4106 SM 100 "50,20,MAX,MAX" . Smooth a bit

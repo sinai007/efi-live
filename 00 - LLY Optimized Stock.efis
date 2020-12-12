@@ -39,7 +39,7 @@
 
 ; ********************************************Throttle Tuning ********************************************
 ; Set 100% Throttle to 100mm3
-600= B0727 cc= B0727  "MAX,MIN,MAX,MAX" "3000,MIN,3000,MAX" THrottle Base Injection Quantity 
+600= B0727 cc= B0727  "MAX,MIN,MAX,MAX" "3000,MIN,3000,MAX" Throttle Base Injection Quantity 
 610= B0727 LFH  . "3000,MIN,MAX,MAX" .  Linear fill
 620= B0727 SET 14 "1400,10,MAX,10" .  Set Bottom End to 12
 630= B0727 SET 110 "2600,90,MAX,MAX" .  Set Top End to 100
@@ -54,51 +54,45 @@
 ;  Reduces cold weather pilot injection amounts for moderately cold weather
 ; 100= B0753 PCT -25  "-26,10,162,110" .   Reduce -26 by 25%
 ; 120= B0753 PCT -25  "3,10,162,110" .   Reduce 3 by 25%
-700= B0753 PCT -25  "32,10,162,110" .   Reduce 32 by 25%
-710= B0753 PCT -25  "61,10,162,110" .   Reduce 6` by 25%
+; 700= B0753 PCT -25  "32,10,162,110" .   Reduce 32 by 25%
+; 710= B0753 PCT -25  "61,10,162,110" .   Reduce 6` by 25%
 
-720= B0753 SM 100 "-40,10,MAX,MAX" . Smooth Out
+; 720= B0753 SM 100 "-40,10,MAX,MAX" . Smooth Out
 ; 190= B0753 SM 100 "-40,10,MAX,MAX" . Smooth Out
 ; 200= B0753 SM 100 "-40,10,MAX,MAX" . Smooth Out
 
 ; Increase injection quantity at low idle to prevent wiggling
-730= B0748 SET 1.5 "600,0,800,0" . Low Idle injection
-
-; Smooth Timing injection when cold
-740= B0915 PCT -25 . . REduce by 25%
-750= B0915 SM 100  . . Smooth
-; 420= B0915 SM 100  . . Smooth
-; 430= B0915 SM 100  . . Smooth
+; 730= B0748 SET 1.5 "600,0,800,0" . Low Idle injection
 
 ; ******************Main Injection Tuning **********************************
 ; Reduce and smooth ECT timing adjustments
-800= B0915 PCT -25 . . REduce by 25%
-810= B0915 SM 100  . . Smooth
+; 800= B0915 PCT -25 . . REduce by 25%
+; 810= B0915 SM 100  . . Smooth
 ; 820= B0915 SM 100  . . Smooth
 ; 830= B0915 SM 100  . . Smooth
 
 ; Reduce and smooth IAT injection compensation
-840= B0932 PCT -12 . . REduce by 12%
-850= B0932 SM 100  . . Smooth
+; 840= B0932 PCT -12 . . REduce by 12%
+; 850= B0932 SM 100  . . Smooth
 ; 860= B0932 SM 100  . . Smooth
 ; 870= B0932 SM 100  . . Smooth
 
 ;Smooth Base Injection C
-880= B0910 SM  100 "1200,15,MAX,MAX" . Smooth C
+; 880= B0910 SM  100 "1200,15,MAX,MAX" . Smooth C
 ; 890= B0910 SM  100 . . Smooth C
 ; 900= B0910 SM  100 . . Smooth C
 ; 910= B0910 SM  100 . . Smooth C
 ; 920= B0910 SM  100 . . Smooth C
 
 ;Smooth Base Injection  B
-930= B0909 SM  100 "1200,15,MAX,MAX" . Smooth B
+; 930= B0909 SM  100 "1200,15,MAX,MAX" . Smooth B
 ; 940= B0909 SM  100 . . Smooth B
 ; 950= B0909 SM  100 . . Smooth B
 ; 960= B0909 SM  100 . . Smooth B
 ; 970= B0909 SM  100 . . Smooth B
 
 ;Smooth Base Injection  A
-980= B0908 SM  100 "1200,15,MAX,MAX" . Smooth A
+; 980= B0908 SM  100 "1200,15,MAX,MAX" . Smooth A
 ; 990= B0908 SM  100 . . Smooth A
 ; 1000= B0908 SM  100 . . Smooth A
 ; 1010= B0908 SM  100 . . Smooth A
