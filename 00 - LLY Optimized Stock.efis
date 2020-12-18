@@ -41,7 +41,8 @@
 ; Set 100% Throttle to 100mm3
 600= B0727 cc= B0727  "MAX,MIN,MAX,MAX" "3000,MIN,3000,MAX" Throttle Base Injection Quantity 
 610= B0727 LFH  . "3000,MIN,MAX,MAX" .  Linear fill
-620= B0727 SET 14 "1400,10,MAX,10" .  Set Bottom End to 12
+620= B0727 SET 12 "1200,10,MAX,10" .  Set Bottom End to 12
+625= B0727 SET  C0727 "0,10,1000,10" .  Fill the low idle
 630= B0727 SET 110 "2600,90,MAX,MAX" .  Set Top End to 100
 640= B0727 SMA  100 "0, 20, MAX, MAX" . Smooth (with anchor) lots
 650= B0727 SMA  100 "0, 20, MAX, MAX" . Smooth (with anchor) lots
@@ -176,3 +177,6 @@ P0404= 3
 P0405= 3
 P0406= 3
 P1404= 3
+
+[C0727]
+0= "20,18,16,15,13,12"
