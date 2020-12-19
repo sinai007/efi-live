@@ -36,8 +36,8 @@
 1250= A2105 SMA 100   "90,60,MAX,MAX" . Smooth a bit
 1260= A2106 PCT 10   "100,80,MAX,MAX" . increase by 10%
 1270= A2106 SMA 100   "90,60,MAX,MAX" . Smooth a bit
-1271= A2105 LFH       "70,100,110,100" . Linear out a point
-1272= A2106 LFH       "70,100,110,100" . Linear out a point
+1271= A2105 SM  100   "70,100,110,100" . Linear out a point
+1272= A2106 SM  100   "70,100,110,100" . Linear out a point
 
 ; Increase Boost by 10% in max mm3s
 1281= A2101 PCT 10   "2200,60,MAX,MAX" . increase by 10%
@@ -57,8 +57,8 @@
 1350= A3105 SMA 100   "90,60,MAX,MAX" . Smooth a bit
 1360= A3106 PCT 20   "100,80,MAX,MAX" . increase by 20%
 1370= A3106 SMA 100   "90,60,MAX,MAX" . Smooth a bit
-1371= A3105 LFH       "70,100,110,100" . Linear out a point
-1372= A3106 LFH       "70,100,110,100" . Linear out a point
+1371= A3105 SM  100   "70,100,110,100" . Linear out a point
+1372= A3106 SM  100   "70,100,110,100" . Linear out a point
 
 ; Increase Boost by 20% in max mm3s
 1381= A3101 PCT 20   "2200,60,MAX,MAX" . increase by 20%
@@ -78,10 +78,10 @@
 1450= A4105 SMA 100   "90,60,MAX,MAX" . Smooth a bit
 1460= A4106 PCT 30   "100,80,MAX,MAX" . increase by 30%
 1470= A4106 SMA 100   "90,60,MAX,MAX" . Smooth a bit
-1471= A4105 LFH       "70,100,110,100" . Linear out a point
-1472= A4106 LFH       "70,100,110,100" . Linear out a point
+1471= A4105 SM  100   "70,100,110,100" . Linear out a point
+1472= A4106 SM  100   "70,100,110,100" . Linear out a point
 
-; Increase Boost by 20% in max mm3s
+; Increase Boost by 30% in max mm3s
 1481= A4101 PCT 30   "2200,60,MAX,MAX" . increase by 30%
 1482= A4101 SM  100  "2200,60,MAX,MAX" . Smooth
 1483= A4101 SM  100  "1800,50,MAX,MAX" . Smooth
