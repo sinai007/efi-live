@@ -54,9 +54,9 @@
 
 ;  Reduces cold weather pilot injection amounts for moderately cold weather
 ; 100= B0753 PCT -25  "-26,10,162,110" .   Reduce -26 by 25%
-700= B0753 PCT -25  "3,10,162,110" .   Reduce 3 by 25%
+; 700= B0753 PCT -25  "3,10,162,110" .   Reduce 3 by 25%
 710= B0753 PCT -25  "32,10,162,110" .   Reduce 32 by 25%
-720= B0753 PCT -25  "61,10,162,110" .   Reduce 6` by 25%
+720= B0753 PCT -25  "61,10,162,110" .   Reduce 61 by 25%
 
 730= B0753 SM 100 "-40,10,MAX,MAX" . Smooth Out
 ;740= B0753 SM 100 "-40,10,MAX,MAX" . Smooth Out
